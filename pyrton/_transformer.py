@@ -14,6 +14,13 @@ class PyrsistentTransformer(ast.NodeTransformer):
         new_node = ast.Call(func=name_node, args=[node], keywords=[])
         return new_node
 
+    def visit_Call(self, node):
+        if isinstance(node.func, ast.Name) and node.func.id == 'set' and not node.args:
+            name_node = ast.Name(id='pset', ctx=ast.Load())
+            return ast.Call(func=name_node, args=[], keywords=[])
+
+        return node
+
     def visit_Dict(self, node):
         return self._visit_collection(node, 'pmap')
 

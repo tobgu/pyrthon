@@ -17,8 +17,6 @@ class PyrsistentImporter(object):
         self._match_expressions.extend(matchers)
 
     def find_module(self, name, path=None):
-        print "Trying to find module %s at path %s" % (name, path)
-
         if not self.module_matches(name):
             return None
 
