@@ -1,3 +1,3 @@
-from pyrton._console import PyrsistentConsole
+from pyrthon._console import PyrsistentConsole
 
 PyrsistentConsole().interact('Pyrsistent data structures enabled')

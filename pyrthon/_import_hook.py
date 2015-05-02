@@ -2,7 +2,7 @@ import imp
 import os
 import types
 import sys
-from pyrton._transformer import transform
+from pyrthon._transformer import transform
 
 
 class PyrsistentImporter(object):

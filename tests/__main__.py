@@ -9,19 +9,19 @@ import pytest
 #
 # Perhaps py.test should not be used for testing this project at all...
 #
-# Explicit import of test module required for correct pyrton treatment before
+# Explicit import of test module required for correct pyrthon treatment before
 # running tests. Also some variants of imports that should and should not trigger
 # literal replacement are tested.
 
-from pyrton import register
+from pyrthon import register
 
 # Three different module matching methods exist
-register('tests.test_pyrton',                         # Explicit
+register('tests.test_pyrthon',                        # Explicit
          'tests.test_included*',                      # Trailing wild card
          lambda name: name.endswith('special_case'))  # Custom module name matcher
 
 # Main tests, should trigger on explicit name
-import tests.test_pyrton
+import tests.test_pyrthon
 
 # Should trigger on wild card
 import tests.test_included_substitution

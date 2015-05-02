@@ -1,5 +1,5 @@
 import sys
-import pyrton._import_hook as import_hook
+import pyrthon._import_hook as import_hook
 
 
 def register(*matchers):

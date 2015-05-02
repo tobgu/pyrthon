@@ -1,6 +1,6 @@
 import code
 import ast
-from pyrton._transformer import transform
+from pyrthon._transformer import transform
 
 
 class PyrsistentConsole(code.InteractiveConsole):
