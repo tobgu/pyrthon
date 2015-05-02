@@ -1,11 +1,17 @@
 from pyrsistent import v, m, s
 
 
-def test_list_becomes_a_pvector():
+def test_literal_list_becomes_a_pvector():
     x = [1, 2]
 
     assert type(x) is type(v())
     assert x == v(1, 2)
+
+
+def test_function_list_becomes_a_list():
+    x = list()
+
+    assert type(x) is not type(v())
 
 
 def test_list_comprehension_becomes_a_pvector():
@@ -15,7 +21,7 @@ def test_list_comprehension_becomes_a_pvector():
     assert x == v(0, 1)
 
 
-def test_dict_becomes_a_pmap():
+def test_literal_dict_becomes_a_pmap():
     x = {'a': 1}
 
     assert type(x) is type(m())
@@ -27,6 +33,12 @@ def test_dict_comprehension_becomes_a_pmap():
 
     assert type(x) is type(m())
     assert x == m(a=1)
+
+
+def test_function_dict_becomes_a_dict():
+    x = dict()
+
+    assert type(x) is not type(m())
 
 
 def test_set_becomes_a_pset():
