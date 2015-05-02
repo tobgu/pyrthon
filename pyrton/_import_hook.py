@@ -8,11 +8,19 @@ from pyrton._transformer import transform
 class PyrsistentImporter(object):
     def __init__(self):
         self._match_expressions = []
-        self._cache = {}
 
     def module_matches(self, name):
-        # TODO: Support regex matching
-        return name in self._match_expressions
+        for expr in self._match_expressions:
+            if callable(expr) and expr(name):
+                return True
+
+            if isinstance(expr, basestring) and expr.endswith('*') and name.startswith(expr[:-1]):
+                return True
+
+            if expr == name:
+                return True
+
+        return False
 
     def add_matchers(self, matchers):
         self._match_expressions.extend(matchers)

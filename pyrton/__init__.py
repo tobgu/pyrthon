@@ -2,7 +2,7 @@ import sys
 import pyrton._import_hook as import_hook
 
 
-def init(*matchers):
+def register(*matchers):
     if import_hook.importer not in sys.meta_path:
         sys.meta_path.insert(0, import_hook.importer)
 
