@@ -9,7 +9,7 @@ Instead of writing this:
 
 .. code:: python
 
-    from pyrsistent import v, pvector
+    from pyrsistent import pvector
     x = pvector([1, 2, 3])
     y = x.set(0, 17)
 
@@ -31,6 +31,15 @@ In *foo/main.py*:
 
     # Register any modules under 'foo' for pyrsistent substitution before any
     # imports from 'foo' modules.
+    #
+    # Registration can be done in three ways:
+    # * Exact module name.
+    #   register('foo.bar')
+    # * Prefix with wild card. All submodules of the prefix.
+    #   register('foo.*')
+    # * Custom matcher function that returns true if substitution should be applied in the module.
+    #   register(lambda name: name.startswith('foo') and name.endswith('baz'))
+
     from pyrthon import register
     register('foo.*')
 
