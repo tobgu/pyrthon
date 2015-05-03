@@ -38,7 +38,6 @@ class PyrsistentTransformer(ast.NodeTransformer):
         return self._visit_collection(node, 'pvector')
 
     def visit_Set(self, node):
-        # How does this work with empty and non empty sets? set() function?
         return self._visit_collection(node, 'pset')
 
     def visit_SetComp(self, node):
