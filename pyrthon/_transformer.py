@@ -23,38 +23,13 @@ class PyrsistentTransformer(ast.NodeTransformer):
             name_node = ast.Name(id='pset', ctx=ast.Load())
             return ast.Call(func=name_node, args=[], keywords=[])
 
-        return node
+        return self.generic_visit(node)
 
     def visit_Dict(self, node):
         return self._visit_collection(node, 'pmap')
 
     def visit_DictComp(self, node):
         return self._visit_collection(node, 'pmap')
-
-    def _handle_expr_assign(self, node):
-        if hasattr(node, 'value') and hasattr(node.value, 'func'):
-            if hasattr(node.value.func, 'value'):
-                if type(node.value.func.value) in (ast.List, ast.ListComp):
-                    node.value.func.value = self._visit_collection(node.value.func.value, 'pvector')
-                elif type(node.value.func.value) in (ast.Dict, ast.DictComp):
-                    node.value.func.value = self._visit_collection(node.value.func.value, 'pmap')
-                elif type(node.value.func.value) in (ast.Set, ast.SetComp):
-                    node.value.func.value = self._visit_collection(node.value.func.value, 'pset')
-                elif hasattr(node.value.func.value, 'func'):
-                    node.value.func.value = self.visit_Call(node.value.func.value)
-
-    def visit_Assign(self, node):
-        # Special case for constructions like the following that for some reason do not call visit_List
-        # >>> x = [1, 2].append(3)
-        self._handle_expr_assign(node)
-        return super(PyrsistentTransformer, self).generic_visit(node)
-
-    def visit_Expr(self, node):
-        # Special case for constructions like the following that for some reason do not call visit_List
-        # >>> [1, 2].append(3)
-        # pvector([1, 2, 3])
-        self._handle_expr_assign(node)
-        return super(PyrsistentTransformer, self).generic_visit(node)
 
     def visit_List(self, node):
         return self._visit_collection(node, 'pvector')
