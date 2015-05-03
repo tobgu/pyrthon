@@ -44,13 +44,13 @@ class PyrsistentTransformer(ast.NodeTransformer):
                     node.value.func.value = self.visit_Call(node.value.func.value)
 
     def visit_Assign(self, node):
-        # Special case for constructions like the following that for some reason does not call visit_List
+        # Special case for constructions like the following that for some reason do not call visit_List
         # >>> x = [1, 2].append(3)
         self._handle_expr_assign(node)
         return super(PyrsistentTransformer, self).generic_visit(node)
 
     def visit_Expr(self, node):
-        # Special case for constructions like the following that for some reason does not call visit_List
+        # Special case for constructions like the following that for some reason do not call visit_List
         # >>> [1, 2].append(3)
         # pvector([1, 2, 3])
         self._handle_expr_assign(node)

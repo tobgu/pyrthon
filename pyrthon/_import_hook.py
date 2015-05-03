@@ -11,14 +11,16 @@ class PyrsistentImporter(object):
 
     def module_matches(self, name):
         for expr in self._match_expressions:
-            if callable(expr) and expr(name):
-                return True
+            if callable(expr):
+                if expr(name):
+                    return True
 
-            if isinstance(expr, basestring) and expr.endswith('*') and name.startswith(expr[:-1]):
-                return True
+            else:
+                if expr.endswith('*') and name.startswith(expr[:-1]):
+                    return True
 
-            if expr == name:
-                return True
+                if expr == name:
+                    return True
 
         return False
 
