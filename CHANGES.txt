@@ -1,6 +1,9 @@
 Revision history
 ----------------
 
-v0.1.0, 2015-05-XX
+v0.1.1, 2015-05-27
+  * Some small internal refactorings, no functional updates.
+
+v0.1.0, 2015-05-03
   * Initial release.
 
