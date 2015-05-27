@@ -26,6 +26,9 @@ import tests.test_pyrthon
 # Should trigger on wild card
 import tests.test_included_substitution
 
+# Should trigger on wild card
+from tests.test_included_wildcard_import import test_substitution_when_module_registered_via_wild_card_match_and_function_imported_via_wildcard
+
 # Should not trigger
 import tests.test_excluded_no_substitution
 
