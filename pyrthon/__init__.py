@@ -1,5 +1,6 @@
 import sys
 import pyrthon._import_hook as import_hook
+from pyrthon.pyrthon_extension import load_ipython_extension,  unload_ipython_extension
 
 
 def register(*matchers):
