@@ -86,6 +86,15 @@ Pyrthon also has basic shell support. Just import *pyrthon.console* and you're g
     >>> {'a'}
     pset(['a'])
 
+
+It's also possible to use pyrthon from Jupyter/IPython notebooks. For that an extension must be loaded.
+This can be done from the console or a cell:
+
+.. code:: shell
+
+    % load_ext pyrthon
+
+
 Installation
 ------------
 
