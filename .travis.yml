@@ -1,5 +1,8 @@
 language: python
 
+python:
+  - "3.6"
+
 install:
   - pip install -r requirements.txt
 
@@ -8,5 +11,5 @@ script:
 
 env:
   - TOXENV=py27
-  - TOXENV=py34
+  - TOXENV=py36
   - TOXENV=pypy
