@@ -1,5 +1,7 @@
 Revision history
 ----------------
+v0.1.2, 2017-02-26
+    * IPython/Jupyter notebook support. Thanks @yardsale8!
 
 v0.1.1, 2015-05-27
   * Some small internal refactorings, no functional updates.

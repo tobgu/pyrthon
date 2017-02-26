@@ -135,6 +135,8 @@ Contributors
 
 Tobias Gustafsson https://github.com/tobgu
 
+Todd Iverson https://github.com/yardsale8 (IPython/Jupyter support)
+
 Contributing
 ------------
 

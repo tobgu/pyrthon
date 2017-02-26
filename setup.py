@@ -16,7 +16,7 @@ setup(
     author='Tobias Gustafsson',
     author_email='tobias.l.gustafsson@gmail.com',
     url='http://github.com/tobgu/pyrthon/',
-    license='LICENSE.mit',
+    license='MIT',
     classifiers=[
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
